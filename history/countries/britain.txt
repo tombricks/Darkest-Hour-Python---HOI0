@@ -1,0 +1,12 @@
+tag ENG
+ideology democratic
+culture european
+colour blue255
+communist_leader pollitt
+communist_popularity 1163
+fascist_leader mosley
+fascist_popularity 1234
+democratic_leader chamberlain
+democratic_popularity 20611
+neutrality_leader edward_viii
+neutrality_popularity 834
