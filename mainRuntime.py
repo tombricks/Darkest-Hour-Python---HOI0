@@ -46,7 +46,7 @@ while True:
     window.fill(colours["blue255"])
 
     #   Top Bar
-    placeImage("gfx/ui/top bar.png", 0, 0, 1280, 720)
+    placeImage("gfx/ui/top bar.png", 0, 0, 1280, 88)
     if nation == nations["ENG"]:
         placeImage("gfx/ui/ENG top bar.png", 0, 0, 191, 88)
 
@@ -67,8 +67,26 @@ while True:
     tempVar = [widthOfText(16, subideologies.name(nation.leader.ideology)), widthOfText(12, nation.leader.ideology), widthOfText(12, nation.leader.party)]
     endOfIdeologyName = endOfCountryName + 65 + max(tempVar)
 
+    tempVar = 0
+    for x in decisions.values():
+        if x.visible:
+            if x.available:
+                buttons["decision_button_"+x.id] = button(960, 88, 320, 32, colours["blank"], colours["black64"])
+            placeImage("gfx/ui/decision.png", 960, 88+tempVar, 320, 32)
+            createText(x.name, 976, 104+tempVar, font, 16, colours["white255"])
+            tempVar += 32
+
+        if not x.visible or not x.available:
+            try:
+                buttons.pop("decision_button_"+x.id)
+            except:
+                pass
+
+
     for x in buttons.values():
         x.draw(pygame.mouse.get_pos)
+
+    print(framesSurpassed)
 
     #   Event Grabber
     #   KEYDOWN only checks for a single press, not repeating presses. If you want that, use the if keys[KEYCODE]: command.
@@ -92,4 +110,4 @@ while True:
     pygame.event.get()
     pygame.event.clear()
     pygame.display.update()
-    clock.tick(100)
+    clock.tick(1000)

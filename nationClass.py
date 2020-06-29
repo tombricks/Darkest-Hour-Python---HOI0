@@ -152,3 +152,10 @@ class nation:
              return self.demoPop
          elif self.ideology == ideologies.neutrality:
              return self.neutPop
+
+class decision:
+    def __init__(self, id, available, visible):
+        self.id = id
+        self.available = available
+        self.visible = visible
+        self.name = localisation["decision_"+id+"_name"]

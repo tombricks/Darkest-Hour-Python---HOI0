@@ -61,3 +61,7 @@ for filename in os.listdir('history/leaders/'):
     createLeader(filename)
 for filename in os.listdir('history/countries/'):
     createNation(filename)
+
+decisions = {
+    "poland_pact": decision("poland_pact", True, True)
+}
